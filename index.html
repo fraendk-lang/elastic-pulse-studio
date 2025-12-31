@@ -1,36 +1,85 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Elastic Pulse Studio – Professional Visual Sequencer</title>
+  <title>Elastic Pulse Studio - Professional Visual Sequencer</title>
+  <meta name="description" content="Elastic Pulse Studio - Professioneller WebGL Visual Sequencer für Echtzeit-Visuals, AI-generierte Shader und professionelle Automatisierung. Läuft komplett im Browser.">
+  <meta name="keywords" content="VJ Software, WebGL, Shader, Visual Sequencer, Audio Reactive, GLSL, Real-time Graphics">
+  <meta name="author" content="Elastic Pulse Studio">
 
-  <!-- SEO -->
-  <meta name="description" content="Elastic Pulse Studio – Professioneller WebGL Visual Sequencer für Echtzeit-Visuals, Shader-Workflows und Automatisierung. Läuft komplett im Browser." />
-  <meta name="keywords" content="WebGL, Shader, Visual Sequencer, VJ Software, Realtime Graphics, GLSL" />
-  <meta name="author" content="Elastic Pulse Studio" />
-
-  <!-- Open Graph (Social Preview) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Elastic Pulse Studio – Professional Visual Sequencer" />
-  <meta property="og:description" content="Create real-time WebGL visuals with shader workflows and professional automation – fully browser-based." />
-  <meta property="og:image" content="https://fraendk-lang.github.io/elastic-pulse-studio/app-screenshot.png" />
-  <meta property="og:url" content="https://fraendk-lang.github.io/elastic-pulse-studio/" />
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Elastic Pulse Studio - Professional Visual Sequencer">
+  <meta property="og:description" content="Create stunning real-time visuals with WebGL shaders, AI-powered generation, and professional-grade automation.">
+  <!-- Absolut ist für GitHub Pages am zuverlässigsten -->
+  <meta property="og:image" content="https://fraendk-lang.github.io/elastic-pulse-studio/app-screenshot.png">
+  <meta property="og:url" content="https://fraendk-lang.github.io/elastic-pulse-studio/">
 
   <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Elastic Pulse Studio" />
-  <meta name="twitter:description" content="Professional WebGL Visual Sequencer" />
-  <meta name="twitter:image" content="https://fraendk-lang.github.io/elastic-pulse-studio/app-screenshot.png" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Elastic Pulse Studio">
+  <meta name="twitter:description" content="Professional WebGL Visual Sequencer">
+  <meta name="twitter:image" content="https://fraendk-lang.github.io/elastic-pulse-studio/app-screenshot.png">
 
   <!-- Icons -->
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 
-  <!-- App styles -->
-  <link rel="stylesheet" href="./index.css" />
+  <!-- Tailwind (wie im lokalen Setup/Prototyp-Look) -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Import map (unchanged) -->
+  <!-- Font (wie vorher) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Global Look (wie vorher) -->
+  <style>
+    :root { color-scheme: dark; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #030712;
+      color: #f9fafb;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    /* Falls deine App diese Klassen nutzt */
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #60a5fa, #a855f7, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .mesh-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #030712; }
+    ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #374151; }
+  </style>
+
+  <!-- Importmap (wie bei dir) -->
   <script type="importmap">
   {
     "imports": {
@@ -43,14 +92,17 @@
   }
   </script>
 
-  <!-- App bundle -->
+  <!-- App Bundle (bei dir vorhanden) -->
   <script type="module" crossorigin src="./assets/index-Bz1CoZwt.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/monaco-editor-CjinG6ix.js" />
-  <link rel="stylesheet" crossorigin href="./assets/monaco-editor-Cq4JNDD7.css" />
+  <link rel="modulepreload" crossorigin href="./assets/monaco-editor-CjinG6ix.js">
+  <link rel="stylesheet" crossorigin href="./assets/monaco-editor-Cq4JNDD7.css">
 </head>
 
 <body>
-  <!-- React mounts here. NOTHING else belongs here. -->
+  <!-- Background (stört die App nicht) -->
+  <div class="mesh-gradient"></div>
+
+  <!-- React mount -->
   <div id="root"></div>
 </body>
 </html>
