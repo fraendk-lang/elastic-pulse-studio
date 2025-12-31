@@ -5,14 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Elastic Pulse Studio – Professional Visual Sequencer</title>
-  <meta name="description" content="Elastic Pulse Studio – professioneller WebGL Visual Sequencer für Echtzeit-Visuals, Shader-Workflows und Automatisierung. Läuft komplett im Browser." />
-  <meta name="keywords" content="VJ Software, WebGL, Shader, Visual Sequencer, Audio Reactive, GLSL, Real-time Graphics" />
+
+  <!-- SEO -->
+  <meta name="description" content="Elastic Pulse Studio – Professioneller WebGL Visual Sequencer für Echtzeit-Visuals, Shader-Workflows und Automatisierung. Läuft komplett im Browser." />
+  <meta name="keywords" content="WebGL, Shader, Visual Sequencer, VJ Software, Realtime Graphics, GLSL" />
   <meta name="author" content="Elastic Pulse Studio" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph (Social Preview) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Elastic Pulse Studio – Professional Visual Sequencer" />
-  <meta property="og:description" content="Create stunning real-time visuals with WebGL shaders, AI-powered generation and professional-grade automation." />
+  <meta property="og:description" content="Create real-time WebGL visuals with shader workflows and professional automation – fully browser-based." />
   <meta property="og:image" content="https://fraendk-lang.github.io/elastic-pulse-studio/app-screenshot.png" />
   <meta property="og:url" content="https://fraendk-lang.github.io/elastic-pulse-studio/" />
 
@@ -22,56 +24,13 @@
   <meta name="twitter:description" content="Professional WebGL Visual Sequencer" />
   <meta name="twitter:image" content="https://fraendk-lang.github.io/elastic-pulse-studio/app-screenshot.png" />
 
+  <!-- Icons -->
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-  <link rel="alternate icon" type="image/png" href="./favicon.png" />
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-  <style>
-    :root { color-scheme: dark; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #030712;
-      color: #f9fafb;
-      margin: 0;
-      overflow-x: hidden;
-    }
-    .mesh-gradient {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background:
-        radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #60a5fa, #a855f7, #ec4899);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #030712; }
-    ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #374151; }
-
-    /* App area anchor */
-    #app { scroll-margin-top: 72px; }
-  </style>
-
-  <!-- Existing app styles (keep) -->
+  <!-- App styles -->
   <link rel="stylesheet" href="./index.css" />
 
-  <!-- Importmap (keep, for your app bundle) -->
+  <!-- Import map (unchanged) -->
   <script type="importmap">
   {
     "imports": {
@@ -84,156 +43,14 @@
   }
   </script>
 
-  <!-- Your app bundle (keep) -->
+  <!-- App bundle -->
   <script type="module" crossorigin src="./assets/index-Bz1CoZwt.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/monaco-editor-CjinG6ix.js" />
   <link rel="stylesheet" crossorigin href="./assets/monaco-editor-Cq4JNDD7.css" />
 </head>
 
 <body>
-  <div class="mesh-gradient"></div>
-
-  <!-- Landing (separate from React root) -->
-  <div id="landing">
-    <header class="px-5 md:px-10 pt-10 md:pt-14 pb-10">
-      <div class="max-w-6xl mx-auto">
-        <div class="flex items-center justify-between gap-4">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl glass flex items-center justify-center">
-              <span class="text-sm font-semibold">EP</span>
-            </div>
-            <div>
-              <div class="text-sm text-slate-300">Elastic Pulse Studio</div>
-              <div class="text-xs text-slate-400">Professional Visual Sequencer</div>
-            </div>
-          </div>
-
-          <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
-            <a class="hover:text-white" href="#features">Features</a>
-            <a class="hover:text-white" href="#workflow">Workflow</a>
-            <a class="hover:text-white" href="#app">Studio</a>
-            <a class="hover:text-white" href="impressum.html">Impressum</a>
-            <a class="hover:text-white" href="datenschutz.html">Datenschutz</a>
-          </nav>
-        </div>
-
-        <div class="mt-10 md:mt-14 grid md:grid-cols-2 gap-8 md:gap-10 items-center">
-          <div class="glass rounded-3xl p-6 md:p-8">
-            <h1 class="text-3xl md:text-5xl font-semibold leading-tight">
-              <span class="gradient-text">Realtime WebGL</span><br />
-              Visual Sequencer im Browser
-            </h1>
-
-            <p class="mt-4 text-slate-300 leading-relaxed">
-              Erstelle und performe dynamische Visuals mit Shader-Workflows, Automationskurven und einem sequenzierbaren Setup – komplett browserbasiert.
-            </p>
-
-            <div class="mt-6 flex flex-col sm:flex-row gap-3">
-              <button id="launchBtn" class="inline-flex items-center justify-center rounded-xl px-5 py-3 bg-white text-slate-900 font-semibold hover:bg-slate-200 transition">
-                Studio starten
-              </button>
-              <a href="#features" class="inline-flex items-center justify-center rounded-xl px-5 py-3 glass font-semibold text-slate-100 hover:border-slate-300 transition">
-                Features ansehen
-              </a>
-            </div>
-
-            <div class="mt-6 grid grid-cols-3 gap-3 text-xs text-slate-400">
-              <div class="glass rounded-xl p-3">
-                <div class="text-slate-200 font-semibold">WebGL</div>
-                <div>Shader Pipeline</div>
-              </div>
-              <div class="glass rounded-xl p-3">
-                <div class="text-slate-200 font-semibold">Automation</div>
-                <div>Kurven & Sequenzen</div>
-              </div>
-              <div class="glass rounded-xl p-3">
-                <div class="text-slate-200 font-semibold">Browser</div>
-                <div>ohne Install</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="glass rounded-3xl p-3 md:p-4">
-            <img
-              src="app-screenshot.png"
-              alt="Elastic Pulse Studio Screenshot"
-              class="w-full h-auto rounded-2xl border border-white/10"
-              loading="eager"
-            />
-            <div class="mt-3 text-xs text-slate-400 px-1">
-              Screenshot der aktuellen Version (GitHub Pages Deployment).
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <main class="px-5 md:px-10 pb-12">
-      <div class="max-w-6xl mx-auto">
-
-        <section id="features" class="mt-2">
-          <div class="glass rounded-3xl p-6 md:p-8">
-            <h2 class="text-2xl md:text-3xl font-semibold">Features</h2>
-            <p class="mt-2 text-slate-300">Konzentration auf performante Workflows – ohne unnötige Komplexität.</p>
-
-            <div class="mt-6 grid md:grid-cols-3 gap-4">
-              <div class="glass rounded-2xl p-5">
-                <div class="text-slate-100 font-semibold">Shader Editor</div>
-                <div class="mt-1 text-sm text-slate-300">Live-Editing, Presets, schnelle Iteration.</div>
-              </div>
-              <div class="glass rounded-2xl p-5">
-                <div class="text-slate-100 font-semibold">Sequencer & Automation</div>
-                <div class="mt-1 text-sm text-slate-300">Kurven, Parameterfahrten, kontrollierte Dynamik.</div>
-              </div>
-              <div class="glass rounded-2xl p-5">
-                <div class="text-slate-100 font-semibold">Export & Performance</div>
-                <div class="mt-1 text-sm text-slate-300">Browser-Export, Monitoring, stabiler Workflow.</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="workflow" class="mt-6">
-          <div class="glass rounded-3xl p-6 md:p-8">
-            <h2 class="text-2xl md:text-3xl font-semibold">Workflow</h2>
-            <ol class="mt-4 space-y-3 text-slate-300">
-              <li><span class="text-slate-100 font-semibold">1.</span> Preset laden oder Shader anpassen</li>
-              <li><span class="text-slate-100 font-semibold">2.</span> Sequencer-Pattern & Automationskurven setzen</li>
-              <li><span class="text-slate-100 font-semibold">3.</span> Performen, Feintuning, Export</li>
-            </ol>
-          </div>
-        </section>
-
-        <footer class="mt-10 text-xs text-slate-400 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-          <div>© <span id="y"></span> Elastic Pulse Studio</div>
-          <div class="flex gap-4">
-            <a class="hover:text-slate-200" href="impressum.html">Impressum</a>
-            <a class="hover:text-slate-200" href="datenschutz.html">Datenschutz</a>
-          </div>
-        </footer>
-
-      </div>
-    </main>
-  </div>
-
-  <!-- App anchor + React mount (top-level, like before) -->
-  <div id="app" class="px-5 md:px-10 pb-16">
-    <div class="max-w-6xl mx-auto">
-      <div class="glass rounded-3xl p-4 md:p-6">
-        <div class="text-sm text-slate-300 mb-2">Studio</div>
-        <div id="root"></div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-    document.getElementById('launchBtn')?.addEventListener('click', () => {
-      // optional: hide landing for maximum app space
-      const landing = document.getElementById('landing');
-      if (landing) landing.style.display = 'none';
-      document.getElementById('app')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  </script>
+  <!-- React mounts here. NOTHING else belongs here. -->
+  <div id="root"></div>
 </body>
 </html>
