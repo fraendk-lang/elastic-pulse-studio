@@ -1,0 +1,15 @@
+export { ErrorBoundary } from './ErrorBoundary';
+export { ControlSlider } from './ControlSlider';
+export { TextModeOverlay } from './TextModeOverlay';
+export { ShaderThumbnail } from './ShaderThumbnail';
+export { MasterXYPad } from './MasterXYPad';
+export { HomeBackground } from './HomeBackground';
+export { ShaderCanvas } from './ShaderCanvas';
+export { SequencerHeader } from './SequencerHeader';
+export { ShaderEditor } from './ShaderEditor';
+export { ExportDialog } from './ExportDialog';
+export { PresetsManager } from './PresetsManager';
+export { KeyboardShortcutsHelp } from './KeyboardShortcutsHelp';
+export { PerformanceMonitor } from './PerformanceMonitor';
+export { MIDIPanel } from './MIDIPanel';
+export { BackgroundLayer } from './BackgroundLayer';
