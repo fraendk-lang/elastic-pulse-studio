@@ -2951,7 +2951,6 @@ const App: React.FC = () => {
                 </p>
                 <p className="mt-2">E-Mail: fraendk@hotmail.com</p>
                 <p className="mt-2">Telefon: +4915753105470</p>
-                <p className="mt-2">Website: <a href="https://www.elasticfieldmusic.com/#imprint" target="_blank" rel="noopener noreferrer" className="text-[#ffdc5e] hover:underline">https://www.elasticfieldmusic.com/#imprint</a></p>
               </div>
               <div>
                 <h3 className="text-white font-black uppercase mb-2 text-base">Projektbezogener Hinweis</h3>
