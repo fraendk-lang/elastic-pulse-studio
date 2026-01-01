@@ -15,6 +15,7 @@ const contactData = {
   street: 'Hospitalstraße 16',
   city: '53840 Troisdorf',
   email: 'fraendk@hotmail.com',
+  phone: '+4915753105470',
   creationDate: '31.12.2025'
 };
 
@@ -100,7 +101,8 @@ const datenschutzContent = `
               ${contactData.name}<br/>
               ${contactData.street}<br/>
               ${contactData.city}<br/>
-              E-Mail: ${contactData.email}
+              E-Mail: ${contactData.email}<br/>
+              Telefon: ${contactData.phone}
             </p>
           </div>
           <div>
@@ -172,6 +174,7 @@ const impressumContent = `
               Deutschland
             </p>
             <p class="mt-3">E-Mail: ${contactData.email}</p>
+            <p class="mt-2">Telefon: ${contactData.phone}</p>
           </div>
           <div>
             <h2 class="text-white font-black uppercase mb-3 text-lg">Projektbezogener Hinweis</h2>

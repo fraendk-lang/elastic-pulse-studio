@@ -2399,89 +2399,10 @@ const App: React.FC = () => {
                 <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] p-6">
                   <div className="bg-[#070707] rounded-xl border border-white/5 overflow-hidden relative group/screenshot shadow-2xl">
                     <img 
-                      src="/app-screenshot.png" 
+                      src="./app-screenshot.png" 
                       alt="Elastic Pulse Studio Interface"
                       className="w-full h-auto object-contain"
-                      onError={(e) => {
-                        // Fallback wenn Bild nicht gefunden wird
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        const fallback = target.nextElementSibling as HTMLElement;
-                        if (fallback) fallback.style.display = 'flex';
-                      }}
                     />
-                    {/* Fallback Mockup wenn Bild nicht vorhanden */}
-                    <div className="hidden flex-col">
-                      {/* Header Bar */}
-                      <div className="bg-[#1a1a1a] border-b border-white/5 px-6 py-3 flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <Pulse size={20} className="text-[#ffdc5e]"/>
-                          <span className="text-white font-black text-xs uppercase">EP_STUDIO_V32_11</span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <div className="px-4 py-1.5 bg-[#ffdc5e] text-black rounded-full text-[10px] font-black uppercase">Play</div>
-                          <div className="text-[#ffdc5e] font-mono text-lg">0.00s</div>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <div className="w-8 h-8 bg-[#2a2a2a] rounded-lg"></div>
-                          <div className="w-8 h-8 bg-[#2a2a2a] rounded-lg"></div>
-                          <div className="w-8 h-8 bg-[#2a2a2a] rounded-lg"></div>
-                        </div>
-                      </div>
-                      {/* Main Interface Grid */}
-                      <div className="grid grid-cols-12 gap-4 p-6">
-                        {/* Left Sidebar */}
-                        <div className="col-span-3 bg-[#1a1a1a] rounded-xl p-4 border border-white/5">
-                          <div className="space-y-3">
-                            <div className="h-8 bg-[#0a0a0a] rounded-lg border border-white/5"></div>
-                            <div className="h-8 bg-[#0a0a0a] rounded-lg border border-white/5"></div>
-                            <div className="h-8 bg-[#0a0a0a] rounded-lg border border-white/5"></div>
-                            <div className="h-32 bg-[#0a0a0a] rounded-lg border border-white/5 mt-4"></div>
-                          </div>
-                        </div>
-                        {/* Center Canvas */}
-                        <div className="col-span-6 bg-[#0a0a0a] rounded-xl border border-white/5 relative overflow-hidden aspect-square">
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="text-center">
-                              <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-[#ffdc5e]/20 to-[#ffdc5e]/5 rounded-full flex items-center justify-center border border-[#ffdc5e]/20">
-                                <Pulse size={48} className="text-[#ffdc5e] animate-pulse"/>
-                              </div>
-                              <div className="text-slate-600 text-xs uppercase tracking-wider">Live Canvas</div>
-                            </div>
-                          </div>
-                          <div className="absolute inset-0 bg-gradient-to-br from-[#ffdc5e]/10 via-transparent to-[#ffdc5e]/10 animate-pulse"></div>
-                        </div>
-                        {/* Right Inspector */}
-                        <div className="col-span-3 bg-[#1a1a1a] rounded-xl p-4 border border-white/5">
-                          <div className="space-y-3">
-                            <div className="flex gap-2 mb-4">
-                              <div className="flex-1 h-8 bg-[#ffdc5e]/20 rounded-lg border border-[#ffdc5e]/30"></div>
-                              <div className="flex-1 h-8 bg-[#0a0a0a] rounded-lg border border-white/5"></div>
-                            </div>
-                            <div className="h-4 bg-[#0a0a0a] rounded"></div>
-                            <div className="h-4 bg-[#0a0a0a] rounded w-3/4"></div>
-                            <div className="h-16 bg-[#0a0a0a] rounded-lg border border-white/5 mt-4"></div>
-                          </div>
-                        </div>
-                      </div>
-                      {/* Timeline */}
-                      <div className="bg-[#0a0a0a] border-t border-white/5 p-4">
-                        <div className="flex items-center gap-4 mb-3">
-                          <div className="h-6 w-20 bg-[#2a2a2a] rounded"></div>
-                          <div className="h-6 w-20 bg-[#2a2a2a] rounded"></div>
-                          <div className="h-6 w-20 bg-[#ffdc5e]/20 rounded border border-[#ffdc5e]/30"></div>
-                        </div>
-                        <div className="h-24 bg-[#080808] rounded-lg border border-white/5 relative overflow-hidden">
-                          <div className="absolute inset-0 flex items-center">
-                            <div className="w-full h-1/3 bg-[#2a2a2a] border-b border-white/5 relative">
-                              <div className="absolute left-1/4 top-0 bottom-0 w-32 bg-[#ffdc5e]/30 rounded border border-[#ffdc5e]/40"></div>
-                              <div className="absolute left-1/2 top-0 bottom-0 w-24 bg-[#3b82f6]/30 rounded border border-blue-500/40"></div>
-                            </div>
-                          </div>
-                          <div className="absolute top-0 left-0 w-1 h-full bg-[#ffdc5e] shadow-[0_0_20px_#ffdc5e]"></div>
-                        </div>
-                      </div>
-                    </div>
                     {/* Hover overlay */}
                     <div className="absolute inset-0 opacity-0 group-hover/screenshot:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[#ffdc5e]/5 to-transparent pointer-events-none"></div>
                   </div>
@@ -2945,7 +2866,8 @@ const App: React.FC = () => {
                   Frank Krumsdorf<br/>
                   Hospitalstraße 16<br/>
                   53840 Troisdorf<br/>
-                  E-Mail: fraendk@hotmail.com
+                  E-Mail: fraendk@hotmail.com<br/>
+                  Telefon: +4915753105470
                 </p>
               </div>
               <div>
@@ -3028,6 +2950,7 @@ const App: React.FC = () => {
                   Deutschland
                 </p>
                 <p className="mt-2">E-Mail: fraendk@hotmail.com</p>
+                <p className="mt-2">Telefon: +4915753105470</p>
               </div>
               <div>
                 <h3 className="text-white font-black uppercase mb-2 text-base">Projektbezogener Hinweis</h3>
