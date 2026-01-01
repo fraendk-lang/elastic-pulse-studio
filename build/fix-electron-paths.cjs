@@ -18,3 +18,31 @@ if (fs.existsSync(distHtmlPath)) {
   process.exit(1);
 }
 
+// Also fix absolute paths in JavaScript bundles for GitHub Pages
+const distDir = path.join(__dirname, '../dist');
+const assetsDir = path.join(distDir, 'assets');
+
+if (fs.existsSync(assetsDir)) {
+  const files = fs.readdirSync(assetsDir).filter(f => f.endsWith('.js'));
+  files.forEach(f => {
+    const filePath = path.join(assetsDir, f);
+    let content = fs.readFileSync(filePath, 'utf8');
+    let modified = false;
+    
+    // Replace absolute paths to app-screenshot.png with relative paths
+    if (content.includes('"/app-screenshot.png"')) {
+      content = content.replace(/"\/app-screenshot\.png"/g, '"./app-screenshot.png"');
+      modified = true;
+    }
+    if (content.includes("'/app-screenshot.png'")) {
+      content = content.replace(/'\/app-screenshot\.png'/g, "'./app-screenshot.png'");
+      modified = true;
+    }
+    
+    if (modified) {
+      fs.writeFileSync(filePath, content, 'utf8');
+      console.log(`✅ Fixed app-screenshot path in ${f}`);
+    }
+  });
+}
+
