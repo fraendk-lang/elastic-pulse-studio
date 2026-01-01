@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Elastic Pulse Studio - Professioneller WebGL Visual Sequencer für Echtzeit-Visuals, AI-generierte Shader und professionelle Automatisierung. Läuft komplett im Browser.">
+  <meta name="keywords" content="VJ Software, WebGL, Shader, Visual Sequencer, Audio Reactive, GLSL, Real-time Graphics">
+  <meta name="author" content="Elastic Pulse Studio">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Elastic Pulse Studio - Professional Visual Sequencer">
+  <meta property="og:description" content="Create stunning real-time visuals with WebGL shaders, AI-powered generation, and professional-grade automation.">
+  <meta property="og:image" content="https://fraendk-lang.github.io/elastic-pulse-studio/app-screenshot.png">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Elastic Pulse Studio">
+  <meta name="twitter:description" content="Professional WebGL Visual Sequencer">
+  
+  <title>Elastic Pulse Studio - Professional Visual Sequencer</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon-50Y_UUZi.svg">
+  <link rel="alternate icon" type="image/png" href="./favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #030712;
+      color: #f9fafb;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #60a5fa, #a855f7, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .mesh-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #030712;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f2937;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #374151;
+    }
+  </style>
+
+<link rel="stylesheet" href="./index.css">
+
+  <link rel="modulepreload" crossorigin href="data:text/javascript;base64,Y29uc3Qgdj0ibW9kdWxlcHJlbG9hZCIsRT1mdW5jdGlvbihpKXtyZXR1cm4iLyIraX0sZD17fSx5PWZ1bmN0aW9uKGYsbCxwKXtsZXQgYz1Qcm9taXNlLnJlc29sdmUoKTtpZihsJiZsLmxlbmd0aD4wKXtsZXQgbj1mdW5jdGlvbih0KXtyZXR1cm4gUHJvbWlzZS5hbGwodC5tYXAobz0+UHJvbWlzZS5yZXNvbHZlKG8pLnRoZW4ocz0+KHtzdGF0dXM6ImZ1bGZpbGxlZCIsdmFsdWU6c30pLHM9Pih7c3RhdHVzOiJyZWplY3RlZCIscmVhc29uOnN9KSkpKX07ZG9jdW1lbnQuZ2V0RWxlbWVudHNCeVRhZ05hbWUoImxpbmsiKTtjb25zdCBlPWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoIm1ldGFbcHJvcGVydHk9Y3NwLW5vbmNlXSIpLHU9KGU9PW51bGw/dm9pZCAwOmUubm9uY2UpfHwoZT09bnVsbD92b2lkIDA6ZS5nZXRBdHRyaWJ1dGUoIm5vbmNlIikpO2M9bihsLm1hcCh0PT57aWYodD1FKHQpLHQgaW4gZClyZXR1cm47ZFt0XT0hMDtjb25zdCBvPXQuZW5kc1dpdGgoIi5jc3MiKSxzPW8/J1tyZWw9InN0eWxlc2hlZXQiXSc6IiI7aWYoZG9jdW1lbnQucXVlcnlTZWxlY3RvcihgbGlua1tocmVmPSIke3R9Il0ke3N9YCkpcmV0dXJuO2NvbnN0IHI9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgibGluayIpO2lmKHIucmVsPW8/InN0eWxlc2hlZXQiOnYsb3x8KHIuYXM9InNjcmlwdCIpLHIuY3Jvc3NPcmlnaW49IiIsci5ocmVmPXQsdSYmci5zZXRBdHRyaWJ1dGUoIm5vbmNlIix1KSxkb2N1bWVudC5oZWFkLmFwcGVuZENoaWxkKHIpLG8pcmV0dXJuIG5ldyBQcm9taXNlKChtLGgpPT57ci5hZGRFdmVudExpc3RlbmVyKCJsb2FkIixtKSxyLmFkZEV2ZW50TGlzdGVuZXIoImVycm9yIiwoKT0+aChuZXcgRXJyb3IoYFVuYWJsZSB0byBwcmVsb2FkIENTUyBmb3IgJHt0fWApKSl9KX0pKX1mdW5jdGlvbiBhKG4pe2NvbnN0IGU9bmV3IEV2ZW50KCJ2aXRlOnByZWxvYWRFcnJvciIse2NhbmNlbGFibGU6ITB9KTtpZihlLnBheWxvYWQ9bix3aW5kb3cuZGlzcGF0Y2hFdmVudChlKSwhZS5kZWZhdWx0UHJldmVudGVkKXRocm93IG59cmV0dXJuIGMudGhlbihuPT57Zm9yKGNvbnN0IGUgb2Ygbnx8W10pZS5zdGF0dXM9PT0icmVqZWN0ZWQiJiZhKGUucmVhc29uKTtyZXR1cm4gZigpLmNhdGNoKGEpfSl9O2V4cG9ydHt5IGFzIF99Owo=">
+<script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+  <script type="module" crossorigin src="./assets/index-BdT7b6--.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/monaco-editor-BowvQLgu.js">
+  <link rel="stylesheet" crossorigin href="./assets/monaco-editor-WaG50qk8.css">
+  <link rel="stylesheet" crossorigin href="./assets/index-B_hdvC15.css">
+</head>
+<body>
+  <div class="mesh-gradient"></div>
+  <div id="root"></div>
+</body>
+</html>
